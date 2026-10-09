@@ -4,6 +4,14 @@
 
 <p align="center"><b>Utilisation de Claude Code en temps réel sur le CORSAIR XENEON EDGE.</b></p>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/version-0.1.1-2ea44f" alt="version 0.1.1">
+  <img src="https://img.shields.io/badge/iCUE-5.45%2B-7b4dff" alt="iCUE 5.45+">
+  <img src="https://img.shields.io/badge/Claude%20Code-Pro%20%7C%20Max-d97757" alt="Claude Code Pro | Max">
+  <img src="https://img.shields.io/badge/GitHub-Codespaces-24292f" alt="GitHub Codespaces">
+  <img src="https://img.shields.io/badge/license-MIT-2b90d9" alt="license MIT">
+</p>
+
 <p align="center"><b>Français</b> · <a href="README.en.md">English</a></p>
 
 EdgePulse est un widget iCUE qui affiche tes limites d'utilisation de Claude Code (session de 5 heures et semaine) dans un double halo lumineux qui s'adapte à la situation : calme, attention, critique, pause forcée, semaine critique et réinitialisation.
