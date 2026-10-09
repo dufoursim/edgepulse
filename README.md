@@ -4,12 +4,15 @@
 
 <p align="center"><b>Utilisation de Claude Code en temps réel sur le CORSAIR XENEON EDGE.</b></p>
 
+<p align="center"><b>Français</b> · <a href="README.en.md">English</a></p>
+
 EdgePulse est un widget iCUE qui affiche tes limites d'utilisation de Claude Code (session de 5 heures et semaine) dans un double halo lumineux qui s'adapte à la situation : calme, attention, critique, pause forcée, semaine critique et réinitialisation.
 
-*English summary: EdgePulse is an iCUE widget showing your Claude Code usage limits (5 hour session and weekly) live on the XENEON EDGE, with an adaptive halo that changes as you approach your limits.*
-
 <p align="center">
-  <img src="docs/apercu.webp" alt="Les six états d'EdgePulse sur une tuile M" width="780">
+  <img src="docs/apercu.webp" alt="Les six états d'EdgePulse sur une tuile M" width="760">
+</p>
+<p align="center">
+  <img src="docs/apercu-s.webp" alt="EdgePulse sur des tuiles S" width="760">
 </p>
 
 ## Comment ça marche
@@ -18,6 +21,8 @@ EdgePulse est un widget iCUE qui affiche tes limites d'utilisation de Claude Cod
 2. La ligne d'état EdgePulse les garde et démarre un petit relais local sur le port 4747.
 3. VS Code redirige ce port vers ton PC (Codespaces, conteneurs, SSH).
 4. Le widget lit `http://localhost:4747/usage` et affiche les données.
+
+Le widget s'affiche en français ou en anglais selon la langue de Windows.
 
 Aucun identifiant n'est lu ni transmis : EdgePulse utilise seulement les données que Claude Code fournit officiellement à sa ligne d'état. Fonctionne avec un abonnement Pro ou Max.
 
