@@ -8,6 +8,8 @@
 
 EdgePulse est un widget iCUE qui affiche tes limites d'utilisation de Claude Code (session de 5 heures et semaine) dans un double halo lumineux qui s'adapte à la situation : calme, attention, critique, pause forcée, semaine critique et réinitialisation.
 
+> **Fonctionne avec Claude Code dans GitHub Codespaces, ouvert dans VS Code sur ton PC.** Le relais s'installe dans tes Codespaces, et VS Code transmet les données au widget sur ton XENEON EDGE. Claude Code installé directement sur Windows n'est pas encore pris en charge.
+
 <p align="center">
   <img src="docs/apercu.webp" alt="Les six états d'EdgePulse sur une tuile M" width="760">
 </p>
