@@ -261,7 +261,12 @@
     const app = $("app");
     if (!app) return;
     const now = Date.now();
-    app.dataset.layout = window.innerWidth / Math.max(1, window.innerHeight) > 1.8 ? "s" : "m";
+    // Le widget est dessiné à sa taille réelle (840 x 688 ou 840 x 344), puis réduit
+    // proportionnellement à l'espace disponible : l'aperçu d'iCUE et l'écran sont identiques.
+    const vw = Math.max(1, window.innerWidth), vh = Math.max(1, window.innerHeight);
+    app.dataset.layout = vw / vh > 1.8 ? "s" : "m";
+    const baseH = app.dataset.layout === "s" ? 344 : 688;
+    document.documentElement.style.setProperty("--scale", String(Math.min(vw / 840, vh / baseH)));
     app.dataset.conn = conn;
 
     const d = conn === "demo" || (!data && conn !== "waiting") ? demoData(now) : data;
