@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EdgePulse</title>
+  <link rel="icon" href="resources/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <meta name="x-icue-property" content="relayPort" data-label="'Port du relais'" data-type="textfield" data-default="'4747'" />
+  <meta name="x-icue-property" content="animations" data-label="'Animations'" data-type="switch" data-default="true" />
+  <meta name="x-icue-property" content="bgOpacity" data-label="'Opacit\u00e9 du fond'" data-type="slider" data-default="100" data-min="0" data-max="100" data-step="1" data-unit-label="'%'" />
+  <script id="x-icue-groups" type="application/json">
+  [
+    {
+      "title": "'Connexion'",
+      "properties": ["relayPort"]
+    },
+    {
+      "title": "'Affichage'",
+      "properties": ["animations", "bgOpacity"]
+    }
+  ]
+  </script>
+</head>
+<body>
+  <main id="app" data-level="calme" data-layout="m" data-anim="on">
+    <div class="tile">
+      <div class="border-pulse"></div>
+
+      <header class="top">
+        <div class="brand">
+          <svg class="logo" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="12" class="logo-arc"/><circle cx="15" cy="15" r="5" class="logo-dot"/></svg>
+          <div class="brand-text">
+            <div class="name">EdgePulse</div>
+            <div class="tagline" id="tagline">Utilisation de Claude Code</div>
+          </div>
+          <div class="pill" id="plan" hidden></div>
+        </div>
+        <div class="live"><span class="dot"></span><span id="etat">EN DIRECT</span></div>
+      </header>
+
+      <section class="body">
+        <div class="halo" id="halo">
+          <div class="aura"></div>
+          <div class="sheen"></div>
+          <svg class="rings" viewBox="0 0 420 420" aria-hidden="true">
+            <circle cx="210" cy="210" r="194" class="track" id="weekTrack"/>
+            <circle cx="210" cy="210" r="194" class="arc" id="weekArc" transform="rotate(-90 210 210)"/>
+            <circle cx="210" cy="210" r="156" class="track" id="sessTrack"/>
+            <circle cx="210" cy="210" r="156" class="arc" id="sessArc" transform="rotate(-90 210 210)"/>
+            <line id="tick70" class="tick tick-warn"/>
+            <line id="tick90" class="tick tick-crit"/>
+          </svg>
+          <div class="flash" id="flash"></div>
+          <div class="center" id="center">
+            <div class="c-label" id="cLabel">SESSION 5 H</div>
+            <div class="c-big"><span id="cBig">0</span><span class="c-unit" id="cUnit">%</span></div>
+            <div class="c-sub" id="cSub"></div>
+          </div>
+        </div>
+
+        <div class="side">
+          <div class="card tip" id="tip">
+            <svg viewBox="0 0 24 24" class="tip-icon" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <div>
+              <div class="tip-title" id="tipTitle"></div>
+              <div class="tip-text" id="tipText"></div>
+            </div>
+          </div>
+
+          <div class="card meter" id="meterA">
+            <div class="m-head"><span class="m-label" id="mALabel">SEMAINE</span><span class="m-val"><span id="mAVal">0</span><span class="m-unit">%</span></span></div>
+            <div class="bar"><div class="fill" id="mAFill"></div></div>
+            <div class="m-sub" id="mASub"></div>
+          </div>
+
+          <div class="card meter s-only" id="meterB">
+            <div class="m-head"><span class="m-label" id="mBLabel">SESSION</span><span class="m-val"><span id="mBVal">0</span><span class="m-unit">%</span></span></div>
+            <div class="bar"><div class="fill" id="mBFill"></div></div>
+            <div class="m-sub" id="mBSub"></div>
+          </div>
+
+          <div class="card rythme m-only">
+            <div class="m-head"><span class="m-label" id="rLabel">RYTHME</span><span class="r-span" id="rSpan">60 derni&egrave;res min</span></div>
+            <div class="bars" id="bars"></div>
+            <div class="m-sub" id="rSub"></div>
+          </div>
+
+          <div class="foot" id="foot"><span id="footL"></span><span id="footR"></span></div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
