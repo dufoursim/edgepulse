@@ -255,7 +255,21 @@ VS Code then picks another local port, shown in the **PORTS** tab ("Forwarded Ad
 
 ### The widget shows OFFLINE
 
-That's normal when your Codespace stops (after a period of inactivity) or when VS Code is closed. Reopen your Codespace and send a message to Claude Code.
+**OFFLINE** means the widget has received data before, but can't find the relay anymore. Three possible causes:
+
+1. **Your Codespace stopped** (after a period of inactivity) or VS Code is closed. Reopen your Codespace and send a message to Claude Code.
+2. **The relay is asleep.** It starts with the first message sent to Claude Code. Send a message, even a short one.
+3. **This Codespace was created before you enabled dotfiles.** Dotfiles only install when a Codespace is created, so EdgePulse isn't there yet. To check, run this in a Codespace terminal:
+   ```bash
+   ls ~/.edgepulse
+   ```
+   If you get "No such file or directory", install EdgePulse in this Codespace (only once):
+   ```bash
+   git clone https://github.com/<your-account>/dotfiles ~/dotfiles && bash ~/dotfiles/install.sh
+   ```
+   Then restart Claude Code and send a message.
+
+If you switch Codespaces, close the old one in VS Code: two Codespaces forwarding port 4747 at the same time can interfere with each other.
 
 ### Python not found
 

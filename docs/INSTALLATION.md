@@ -264,7 +264,21 @@ VS Code choisit alors un autre port local, visible dans l'onglet **PORTS** (colo
 
 ### Le widget affiche HORS LIGNE
 
-C'est normal quand ton Codespace s'arrête (après une période d'inactivité) ou quand VS Code est fermé. Rouvre ton Codespace et envoie un message à Claude Code.
+**HORS LIGNE** veut dire que le widget a déjà reçu des données, mais qu'il ne trouve plus de relais. Trois causes possibles :
+
+1. **Ton Codespace s'est arrêté** (après une période d'inactivité) ou VS Code est fermé. Rouvre ton Codespace et envoie un message à Claude Code.
+2. **Le relais dort.** Il démarre au premier message envoyé à Claude Code. Envoie un message, même court.
+3. **Ce Codespace a été créé avant l'activation des dotfiles.** Les dotfiles ne s'installent qu'à la création d'un Codespace, donc EdgePulse n'y est pas encore. Pour le vérifier, lance dans un terminal du Codespace :
+   ```bash
+   ls ~/.edgepulse
+   ```
+   Si tu obtiens « No such file or directory », installe EdgePulse dans ce Codespace (une seule fois) :
+   ```bash
+   git clone https://github.com/<ton-compte>/dotfiles ~/dotfiles && bash ~/dotfiles/install.sh
+   ```
+   Puis relance Claude Code et envoie un message.
+
+Si tu changes de Codespace, ferme l'ancien dans VS Code : deux Codespaces qui transfèrent le port 4747 en même temps peuvent se nuire.
 
 ### Python est introuvable
 
