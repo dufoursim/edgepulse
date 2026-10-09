@@ -1,5 +1,13 @@
 # Historique des versions · Changelog
 
+## 0.1.1
+
+**Français**
+- Le widget est dessiné à sa taille réelle, puis réduit proportionnellement : l'aperçu d'iCUE est maintenant identique à l'écran du XENEON EDGE, sans texte qui déborde.
+
+**English**
+- The widget is drawn at its real size, then scaled proportionally: the iCUE preview now matches the XENEON EDGE screen, with no overflowing text.
+
 ## 0.1.0
 
 **Français**
