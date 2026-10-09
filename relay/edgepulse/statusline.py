@@ -19,6 +19,8 @@ STATE = os.path.join(BASE, "state.json")
 PREVIOUS = os.path.join(BASE, "previous-statusline.json")
 RELAY = os.path.join(BASE, "relay.py")
 PORT = int(os.environ.get("EDGEPULSE_PORT", "4747"))
+_LANG = os.environ.get("EDGEPULSE_LANG") or os.environ.get("LC_ALL") or os.environ.get("LANG") or "en"
+FR = _LANG.lower().startswith("fr")
 
 
 def get(d, *keys):
@@ -107,11 +109,11 @@ def main():
         if rl:
             h5 = get(rl, "five_hour", "used_percentage")
             j7 = get(rl, "seven_day", "used_percentage")
-            texte = "EdgePulse · 5 h {} % · 7 j {} %".format(
+            texte = ("EdgePulse · 5 h {} % · 7 j {} %" if FR else "EdgePulse · 5h {}% · 7d {}%").format(
                 "?" if h5 is None else round(h5), "?" if j7 is None else round(j7)
             )
         else:
-            texte = "EdgePulse · en attente des limites"
+            texte = "EdgePulse · en attente des limites" if FR else "EdgePulse · waiting for limits"
     print(texte)
 
 
